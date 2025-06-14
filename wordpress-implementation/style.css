@@ -6,10 +6,7 @@ Version: 1.0
 Author: Seu Nome
 */
 
-/* Importar Tailwind CSS */
-@import url('https://cdn.tailwindcss.com');
-
-/* Reset e configurações base */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -20,24 +17,191 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #333;
+    background: white;
+}
+
+/* Garantir que não há estilos conflitantes do WordPress */
+.site-header a {
+    text-decoration: none !important;
+}
+
+/* Estilos de fallback caso Tailwind não carregue */
+.max-w-7xl {
+    max-width: 1280px;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.space-x-8 > * + * {
+    margin-left: 2rem;
+}
+
+.space-x-4 > * + * {
+    margin-left: 1rem;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.sticky {
+    position: sticky;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.z-50 {
+    z-index: 50;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-blue-600 {
+    color: #2563eb;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.bg-blue-600 {
+    background-color: #2563eb;
+}
+
+.text-white {
+    color: white;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.hover\:bg-blue-700:hover {
+    background-color: #1d4ed8;
+}
+
+.hover\:text-blue-600:hover {
+    color: #2563eb;
+}
+
+.transition-colors {
+    transition-property: color, background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Gradiente personalizado */
-.bg-gradient-galt {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+.bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
-/* Container do formulário */
+.from-blue-600 {
+    --tw-gradient-from: #2563eb;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(37, 99, 235, 0));
+}
+
+.to-blue-800 {
+    --tw-gradient-to: #1e40af;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .md\:flex {
+        display: flex;
+    }
+    
+    .md\:text-5xl {
+        font-size: 3rem;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 640px) {
+    .sm\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:px-8 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Estilos específicos para o formulário */
+.quote-form-section {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 5rem 0;
+}
+
 .form-container {
     background: white;
     border-radius: 12px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     padding: 2rem;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 48rem;
 }
 
-/* Divisor de seção */
 .section-divider {
     width: 6rem;
     height: 4px;
@@ -58,14 +222,6 @@ body {
 .service-card:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
-}
-
-/* Cards de depoimentos */
-.testimonial-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
 }
 
 /* FAQ */
@@ -98,83 +254,9 @@ body {
 .faq-answer {
     padding: 0 1.5rem 1.5rem;
     color: #6b7280;
-    display: none;
 }
 
-.faq-answer.active {
-    display: block;
-}
-
-/* Logos dos parceiros */
-.partner-logo {
-    filter: grayscale(100%);
-    transition: all 0.3s ease;
-    max-height: 4rem;
-    width: auto;
-}
-
-.partner-logo:hover {
-    filter: grayscale(0%);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    .form-container {
-        padding: 1.5rem;
-        margin: 0 1rem;
-    }
-    
-    h1 {
-        font-size: 2.5rem !important;
-    }
-    
-    .service-card,
-    .testimonial-card {
-        padding: 1.5rem;
-    }
-}
-
-/* Animações personalizadas */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* Botões customizados */
-.btn-primary {
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-}
-
-/* Melhorias nos inputs */
+/* Inputs do formulário */
 input[type="text"],
 input[type="email"],
 select,
@@ -185,6 +267,7 @@ textarea {
     border-radius: 0.5rem;
     font-size: 1rem;
     transition: all 0.2s ease;
+    color: #1f2937;
 }
 
 input[type="text"]:focus,
@@ -196,13 +279,25 @@ textarea:focus {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Headers e navegação */
-.site-header {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* Botões */
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
 /* Footer */
