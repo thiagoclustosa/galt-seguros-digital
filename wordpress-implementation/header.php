@@ -44,9 +44,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
             <div class="flex items-center">
-                <h1 class="text-2xl font-bold text-blue-600">
-                    <a href="<?php echo home_url(); ?>" class="text-blue-600 no-underline">Galt Seguros</a>
-                </h1>
+                <?php
+                // Você pode definir a URL da logo aqui ou usar uma opção de tema
+                $logo_url = get_theme_mod('galt_logo', ''); // URL da logo (configure no Customizador)
+                if ($logo_url) : ?>
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="Galt Seguros" class="h-12 w-auto">
+                <?php else : ?>
+                    <h1 class="text-2xl font-bold text-blue-600">
+                        <a href="<?php echo home_url(); ?>" class="text-blue-600 no-underline">Galt Seguros</a>
+                    </h1>
+                <?php endif; ?>
             </div>
             
             <nav class="hidden md:flex space-x-8">
