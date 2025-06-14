@@ -12,26 +12,44 @@
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             <?php
-            // Array com as seguradoras - SUBSTITUA AS URLs pelas URLs reais das suas imagens
+            // Array com as seguradoras e suas URLs reais
             $partners = array(
-                array('name' => 'Porto Seguro', 'logo' => 'URL_DA_IMAGEM_PORTO_SEGURO'),
-                array('name' => 'Allianz', 'logo' => 'URL_DA_IMAGEM_ALLIANZ'),
-                array('name' => 'HDI Seguros', 'logo' => 'URL_DA_IMAGEM_HDI'),
-                array('name' => 'Bradesco Seguros', 'logo' => 'URL_DA_IMAGEM_BRADESCO'),
-                array('name' => 'MAPFRE', 'logo' => 'URL_DA_IMAGEM_MAPFRE'),
-                array('name' => 'Tokio Marine', 'logo' => 'URL_DA_IMAGEM_TOKIO')
+                array(
+                    'name' => 'Porto Seguro',
+                    'logo' => 'https://galtcorretoradeseguros.com.br/wp-content/uploads/2025/06/Nova-Logo_PortoHolding-scaled.webp'
+                ),
+                array(
+                    'name' => 'HDI Seguros',
+                    'logo' => 'https://galtcorretoradeseguros.com.br/wp-content/uploads/2025/06/logo-hdi-seguros-scaled.png'
+                ),
+                array(
+                    'name' => 'MAPFRE',
+                    'logo' => 'https://galtcorretoradeseguros.com.br/wp-content/uploads/2025/06/LOGO-MAPFRE.jpg'
+                ),
+                array(
+                    'name' => 'Tokio Marine',
+                    'logo' => 'https://galtcorretoradeseguros.com.br/wp-content/uploads/2025/06/logo-tokio-marine.png'
+                ),
+                array(
+                    'name' => 'Allianz',
+                    'logo' => '' // Placeholder para quando você tiver a imagem
+                ),
+                array(
+                    'name' => 'Bradesco Seguros',
+                    'logo' => '' // Placeholder para quando você tiver a imagem
+                )
             );
 
             foreach ($partners as $partner) : ?>
                 <div class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <?php if ($partner['logo'] !== 'URL_DA_IMAGEM_' . strtoupper(str_replace(' ', '_', $partner['name']))) : ?>
+                    <?php if (!empty($partner['logo'])) : ?>
                         <img
                             src="<?php echo esc_url($partner['logo']); ?>"
                             alt="<?php echo esc_attr($partner['name']); ?>"
                             class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300"
                         />
                     <?php else : ?>
-                        <!-- Fallback caso não tenha imagem -->
+                        <!-- Fallback para seguradoras sem imagem -->
                         <div class="text-center">
                             <div class="text-2xl font-bold text-blue-600 mb-2">
                                 <?php echo esc_html(explode(' ', $partner['name'])[0]); ?>
