@@ -1,4 +1,4 @@
-name: Deploy Lovable via FTP by AdsLuciano
+name: Deploy Lovable via FTP na Hostinger
 
 on:
   push:
